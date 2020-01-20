@@ -67,7 +67,8 @@ SwapiService.fetchPerson(id: 35) { (person) in
 
     for filmURL in person.films {
         SwapiService.fetchFilm(url: filmURL) { (film) in
-            print(film!.title)
+            guard let film = film else { return }
+            print(film.title)
         }
     }
 }
